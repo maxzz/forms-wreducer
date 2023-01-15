@@ -1,6 +1,6 @@
 function App() {
     return (
-        <div className="App">
+        <div className="bg-green-400">
             11
         </div>
     );
