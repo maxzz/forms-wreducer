@@ -1,14 +1,10 @@
 #sun-moon-container {
     --primary-hex: #fff;
-    --primary-rgb: 255,255,255;
+    --primary-rgb: 255, 255, 255;
     --secondary-hex: #191919;
-    --secondary-rgb: 25,25,25;
+    --secondary-rgb: 25, 25, 25;
+
     --menu-height: 65px;
-    --side-padding: 6vw;
-    --code-coin-color: #00cd34;
-    --under-the-hood-height: 200px;
-    --card-border-radius: clamp(5px,1.5vw,12px);
-    --sun-moon-width: 70px;
 
     position: absolute;
     top: 0;
@@ -17,15 +13,13 @@
     height: var(--menu-height);
     text-align: center;
     line-height: var(--menu-height);
-    border-left: 1px solid rgba(var(--secondary-rgb),.15);
     cursor: pointer;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
     box-sizing: border-box;
-    width: 82px
 }
 
 #sun-moon-container:hover {
-    background-color: rgba(var(--secondary-rgb),.05)
+    background-color: rgba(var(--secondary-rgb), 0.05);
 }
 
 #sun-moon-toggle {
@@ -34,19 +28,19 @@
     width: 24px;
     height: 24px;
     box-sizing: border-box;
-    border: 2px solid rgba(var(--secondary-rgb),0);
-    transition: border .5s,background-color .5s;
+    border: 2px solid rgba(var(--secondary-rgb), 0);
+    transition: border 0.5s, background-color 0.5s;
     cursor: pointer;
     vertical-align: middle;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%,-50%,0)
+    transform: translate3d(-50%, -50%, 0);
 }
 
 .moon #sun-moon-toggle {
-    border: 2px solid rgba(var(--secondary-rgb),1);
-    background-color: var(--primary-hex)
+    border: 2px solid rgba(var(--secondary-rgb), 1);
+    background-color: var(--primary-hex);
 }
 
 #main-circle {
@@ -57,28 +51,28 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%, -50%, 0);
     z-index: 1;
-    transition: background-color .5s
+    transition: background-color 0.5s;
 }
 
 #main-circle:after {
-    content: '';
+    content: "";
     border-radius: 50%;
     background-color: var(--primary-hex);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(calc(-50% + 3.5px),calc(-50% - 1.5px),0) scale(1);
+    transform: translate3d(calc(-50% + 3.5px), calc(-50% - 1.5px), 0) scale(1);
     width: 8px;
     height: 9px;
     z-index: 2;
-    transition: transform .5s,background-color .5s
+    transition: transform 0.5s, background-color 0.5s;
 }
 
 .sun #main-circle:after {
-    transform: translate3d(calc(-50% + 4px),calc(-50% - 4px),0) scale(0);
-    background-color: var(--secondary-hex)
+    transform: translate3d(calc(-50% + 4px), calc(-50% - 4px), 0) scale(0);
+    background-color: var(--secondary-hex);
 }
 
 .sun-rays {
@@ -89,57 +83,51 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%,-50%,0);
-    transition: transform .5s,opacity .5s,background-color .5s;
+    transform: translate3d(-50%, -50%, 0);
+    transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
     z-index: 0;
-    opacity: 0
+    opacity: 0;
 }
 
 .sun .sun-rays {
-    opacity: 1
+    opacity: 1;
 }
 
 .sun #sun-ray-1 {
-    transform: translate3d(-50%,calc(-50% - 10.5px),0)
+    transform: translate3d(-50%, calc(-50% - 10.5px), 0);
 }
 
 .sun #sun-ray-2 {
-    transform: translate3d(calc(-50% + 7.5px),calc(-50% - 7.5px),0);
-    transition-delay: .05s
+    transform: translate3d(calc(-50% + 7.5px), calc(-50% - 7.5px), 0);
+    transition-delay: 0.05s;
 }
 
 .sun #sun-ray-3 {
-    transform: translate3d(calc(-50% + 10.5px),-50%,0);
-    transition-delay: .1s
+    transform: translate3d(calc(-50% + 10.5px), -50%, 0);
+    transition-delay: 0.1s;
 }
 
 .sun #sun-ray-4 {
-    transform: translate3d(calc(-50% + 7.5px),calc(-50% + 7.5px),0);
-    transition-delay: .15s
+    transform: translate3d(calc(-50% + 7.5px), calc(-50% + 7.5px), 0);
+    transition-delay: 0.15s;
 }
 
 .sun #sun-ray-5 {
-    transform: translate3d(-50%,calc(-50% + 10.5px),0);
-    transition-delay: .2s
+    transform: translate3d(-50%, calc(-50% + 10.5px), 0);
+    transition-delay: 0.2s;
 }
 
 .sun #sun-ray-6 {
-    transform: translate3d(calc(-50% - 7.5px),calc(-50% + 7.5px),0);
-    transition-delay: .25s
+    transform: translate3d(calc(-50% - 7.5px), calc(-50% + 7.5px), 0);
+    transition-delay: 0.25s;
 }
 
 .sun #sun-ray-7 {
-    transform: translate3d(calc(-50% - 10.5px),-50%,0);
-    transition-delay: .3s
+    transform: translate3d(calc(-50% - 10.5px), -50%, 0);
+    transition-delay: 0.3s;
 }
 
 .sun #sun-ray-8 {
-    transform: translate3d(calc(-50% - 7.5px),calc(-50% - 7.5px),0);
-    transition-delay: .35s
-}
-
-@media only screen and (max-width: 750px) {
-    #sun-moon-container {
-        width:var(--sun-moon-width)
-    }
+    transform: translate3d(calc(-50% - 7.5px), calc(-50% - 7.5px), 0);
+    transition-delay: 0.35s;
 }
