@@ -1,9 +1,6 @@
 #sun-moon-container {
-    --primary-hex: #fff;
     --primary-rgb: 255, 255, 255;
-    --secondary-hex: #191919;
     --secondary-rgb: 25, 25, 25;
-
     --menu-height: 65px;
 
     position: absolute;
@@ -39,15 +36,15 @@
 }
 
 .moon #sun-moon-toggle {
-    border: 2px solid rgba(var(--secondary-rgb), 1);
-    background-color: var(--primary-hex);
+    border: 2px solid rgb(var(--secondary-rgb));
+    background-color: rgb(var(--primary-rgb));
 }
 
 #main-circle {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background-color: var(--secondary-hex);
+    background-color: rgb(var(--secondary-rgb));
     position: absolute;
     top: 50%;
     left: 50%;
@@ -59,7 +56,7 @@
 #main-circle:after {
     content: "";
     border-radius: 50%;
-    background-color: var(--primary-hex);
+    background-color: rgb(var(--primary-rgb));
     position: absolute;
     top: 50%;
     left: 50%;
@@ -72,14 +69,14 @@
 
 .sun #main-circle:after {
     transform: translate3d(calc(-50% + 4px), calc(-50% - 4px), 0) scale(0);
-    background-color: var(--secondary-hex);
+    background-color: rgb(var(--secondary-rgb));
 }
 
 .sun-rays {
     border-radius: 50%;
     width: 2px;
     height: 2px;
-    background-color: var(--secondary-hex);
+    background-color: rgb(var(--secondary-rgb));
     position: absolute;
     top: 50%;
     left: 50%;
