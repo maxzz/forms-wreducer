@@ -2,7 +2,7 @@
   "name": "forms-wreducer",
   "private": true,
   "version": "0.0.1",
-  "description": "React forms without state libraries",
+  "description": "React forms without state management libraries",
   "license": "MIT",
   "type": "module",
   "scripts": {

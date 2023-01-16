@@ -1,4 +1,4 @@
-import { FormWithReducer } from "./components/FormWithReducer";
+import { FormWithReducer } from "@/components/FormWithReducer";
 
 function App() {
     return (
