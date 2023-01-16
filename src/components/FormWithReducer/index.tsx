@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { InputHTMLAttributes, useReducer } from 'react';
 
 type ActionType = 'setName' | 'setZip';
 
@@ -9,6 +9,15 @@ type Payload = {
 type State = {
     name: string;
 };
+
+function Input({ label, ...rest }: { label: string; } & InputHTMLAttributes<HTMLInputElement>) {
+    return (
+        <label className="grid">
+            <div className="">{label}</div>
+            <input {...rest} />
+        </label>
+    );
+}
 
 export function FormWithReducer() {
     const [state, stateReducer] = useReducer(
@@ -30,15 +39,22 @@ export function FormWithReducer() {
     return (
         <section className="h-full grid place-content-center place-items-center grid-rows-1">
             <form className="bg-orange-500">
-                
-                <label className="grid">
+
+                <Input
+                    label="Username"
+                    type="text"
+                    value={state.name}
+                    onChange={(e) => stateReducer({ type: 'setName', payload: { name: e.target.value } })}
+                />
+
+                {/* <label className="grid">
                     <div className="">Username</div>
                     <input
                         type="text"
                         value={state.name}
                         onChange={(e) => stateReducer({ type: 'setName', payload: { name: e.target.value } })}
                     />
-                </label>
+                </label> */}
 
                 {state.name}
             </form>
