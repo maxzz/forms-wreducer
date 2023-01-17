@@ -56,6 +56,7 @@ export function FormWithReducer() {
                     type="text"
                     value={state.name}
                     onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
+                    error={state.name ? undefined : "This text is required."}
                 />
 
                 <Input
@@ -63,6 +64,7 @@ export function FormWithReducer() {
                     type="password"
                     value={state.password}
                     onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
+                    error={state.password ? undefined : "This text is required."}
                 />
 
                 <div className="my-8 px-2 py-1 text-xs bg-violet-300 rounded whitespace-pre">
