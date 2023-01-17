@@ -23,42 +23,45 @@ function Input({ label, ...rest }: { label: string; } & InputHTMLAttributes<HTML
 function Button() {
     return (
         <button className="self-end px-3 py-2 min-w-[12ch] border-violet-400 border rounded">OK</button>
-    )
+    );
 }
 
-export function FormWithReducer() {
-    const [state, stateReducer] = useReducer(
-        (state: State, action: { type: ActionType, payload: Payload; }) => {
-            switch (action.type) {
-                case 'setName': {
-                    return {
-                        ...state,
-                        ...action.payload,
-                    };
-                }
-            }
-            return state;
-        },
-        {
-            name: "Jack",
+function reducer(state: State, action: { type: ActionType, payload: Payload; }) {
+    switch (action.type) {
+        case 'setName': {
+            return {
+                ...state,
+                ...action.payload,
+            };
         }
-    );
+    }
+    return state;
+}
+
+const initialState = {
+    name: "Jack",
+};
+
+export function FormWithReducer() {
+    const [state, reduceState] = useReducer(reducer, initialState);
     return (
         <section className="h-full grid place-content-center place-items-center">
             <form className="p-4 min-w-[44ch] bg-violet-500 rounded-md flex flex-col">
+
+                <div className="text-violet-200 bg-violet-900">Caption</div>
 
                 <Input
                     label="Username"
                     type="text"
                     value={state.name}
-                    onChange={(e) => stateReducer({ type: 'setName', payload: { name: e.target.value } })}
+                    onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
                 />
 
                 <Input
                     label="Password"
                     type="password"
                     value={state.name}
-                    onChange={(e) => stateReducer({ type: 'setName', payload: { name: e.target.value } })}
+                    onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
                 />
 
                 {/* <label className="grid">
@@ -70,7 +73,7 @@ export function FormWithReducer() {
                     />
                 </label> */}
 
-                <div className="mt-8 text-center">
+                <div className="my-8 p-4 text-center bg-violet-300 rounded">
                     {state.name}
                 </div>
 
