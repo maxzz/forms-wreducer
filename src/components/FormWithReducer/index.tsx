@@ -1,19 +1,34 @@
 import { useReducer } from 'react';
 import { Input, Button } from './ui';
 
-type ActionType = 'setName' | 'setZip';
-
-type Payload = {
-    name: string;
-};
-
 type State = {
     name: string;
+    password: string;
 };
 
-function reducer(state: State, action: { type: ActionType, payload: Payload; }) {
+//type ActionType = 'setName' | 'setPassword';
+
+type ActionName = {
+    type: 'setName',
+    payload: { name: string; };
+};
+
+type ActionPassword = {
+    type: 'setPassword',
+    payload: { password: string; };
+};
+
+type Action = ActionName | ActionPassword;
+
+function reducer(state: State, action: Action) {
     switch (action.type) {
         case 'setName': {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        }
+        case 'setPassword': {
             return {
                 ...state,
                 ...action.payload,
@@ -25,6 +40,7 @@ function reducer(state: State, action: { type: ActionType, payload: Payload; }) 
 
 const initialState = {
     name: "Jack",
+    password: "",
 };
 
 export function FormWithReducer() {
@@ -46,7 +62,7 @@ export function FormWithReducer() {
                     label="Password"
                     type="password"
                     value={state.name}
-                    onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
+                    onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
                 />
 
                 <div className="my-8 p-4 text-center bg-violet-300 rounded">
