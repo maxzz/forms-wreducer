@@ -77,7 +77,7 @@ export function FormWithReducer() {
                     </div>
                 </div>
 
-                <Button label="OK" className="mx-4 mb-4 min-w-[12ch]" onClick={(e) => e.preventDefault()} />
+                <Button label="OK" className="self-end mx-4 mb-4 min-w-[12ch]" onClick={(e) => e.preventDefault()} />
             </form>
         </section>
     );

@@ -11,7 +11,7 @@ export function Input({ label, error, className, ...rest }: { label: string; err
             <input
                 className={classNames(
                     "px-4 py-1.5 text-indigo-900 bg-indigo-200 rounded",
-                    "outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 focus:ring-offset-indigo-500/70"
+                    "outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-100/70 focus:ring-offset-indigo-500/70",
                 )}
                 {...rest}
             />
@@ -28,7 +28,14 @@ export function Input({ label, error, className, ...rest }: { label: string; err
 
 export function Button({ label, className, ...rest }: { label: string; } & ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className={classNames("self-end px-3 py-2 text-indigo-200 border-indigo-400/50 border rounded", className)} {...rest}>
+        <button
+            className={classNames(
+                "px-3 py-2 text-indigo-200 border-indigo-400/50 border rounded shadow active:scale-[.97]",
+                "outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-100/30 focus:ring-offset-indigo-900/30",
+                className
+            )}
+            {...rest}
+        >
             {label}
         </button>
     );
