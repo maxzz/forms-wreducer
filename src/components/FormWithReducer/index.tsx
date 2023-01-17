@@ -61,12 +61,12 @@ export function FormWithReducer() {
                 <Input
                     label="Password"
                     type="password"
-                    value={state.name}
+                    value={state.password}
                     onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
                 />
 
-                <div className="my-8 p-4 text-center bg-violet-300 rounded">
-                    {state.name}
+                <div className="my-8 p-4 text-xs bg-violet-300 rounded whitespace-pre">
+                    {JSON.stringify(state, null, 4)}
                 </div>
 
                 <Button />
