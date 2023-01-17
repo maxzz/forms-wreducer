@@ -5,7 +5,7 @@ export function Input({ label, ...rest }: { label: string; } & InputHTMLAttribut
         <label className="grid">
             <div className="mb-1">{label}</div>
             <input className="px-4 py-1.5 rounded" {...rest} />
-            <div className="invisible_ text-red-800">error</div>
+            <div className="text-xs invisible_ text-red-100" style={{textShadow: '0px 0px 4px red'}}>This text is required.</div>
         </label>
     );
 }

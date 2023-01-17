@@ -65,7 +65,7 @@ export function FormWithReducer() {
                     onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
                 />
 
-                <div className="my-8 p-4 text-xs bg-violet-300 rounded whitespace-pre">
+                <div className="my-8 px-2 py-1 text-xs bg-violet-300 rounded whitespace-pre">
                     {JSON.stringify(state, null, 4)}
                 </div>
 
