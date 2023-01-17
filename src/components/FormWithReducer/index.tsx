@@ -67,8 +67,13 @@ export function FormWithReducer() {
                     error={state.password ? undefined : "This text is required."}
                 />
 
-                <div className="my-8 px-2 py-1 text-xs bg-violet-300 rounded whitespace-pre">
-                    {JSON.stringify(state, null, 4)}
+                <div className="mt-8 mb-4 text-xs">
+                    <div className="text-indigo-200">State</div>
+
+                    <div className="px-2 py-1 text-xs bg-violet-300 rounded whitespace-pre">
+                        {JSON.stringify(state, null, 4)}
+                    </div>
+
                 </div>
 
                 <Button />
