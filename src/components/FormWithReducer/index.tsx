@@ -47,9 +47,9 @@ export function FormWithReducer() {
     const [state, reduceState] = useReducer(reducer, initialState);
     return (
         <section className="h-full grid place-content-center place-items-center">
-            <form className="min-w-[44ch] bg-violet-500 rounded-md flex flex-col overflow-hidden">
+            <form className="min-w-[44ch] bg-indigo-900/70 rounded-md flex flex-col overflow-hidden">
 
-                <div className="p-4 text-violet-200 bg-violet-900">Caption</div>
+                <div className="p-4 text-indigo-200 bg-indigo-900">Caption</div>
 
                 <div className="p-4">
                     <Input
@@ -57,7 +57,7 @@ export function FormWithReducer() {
                         type="text"
                         value={state.name}
                         onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
-                        error={state.name ? undefined : "This text is required."}
+                        error={state.name ? undefined : "This field is required."}
                     />
 
                     <Input
@@ -65,7 +65,7 @@ export function FormWithReducer() {
                         type="password"
                         value={state.password}
                         onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
-                        error={state.password ? undefined : "This text is required."}
+                        error={state.password ? undefined : "This field is required."}
                     />
 
                     <div className="mt-8 text-xs">
