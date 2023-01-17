@@ -13,7 +13,7 @@ type State = {
 function Input({ label, ...rest }: { label: string; } & InputHTMLAttributes<HTMLInputElement>) {
     return (
         <label className="grid">
-            <div className="">{label}</div>
+            <div className="mb-1">{label}</div>
             <input className="px-4 py-1.5 rounded" {...rest} />
         </label>
     );
@@ -43,6 +43,13 @@ export function FormWithReducer() {
                 <Input
                     label="Username"
                     type="text"
+                    value={state.name}
+                    onChange={(e) => stateReducer({ type: 'setName', payload: { name: e.target.value } })}
+                />
+
+                <Input
+                    label="Password"
+                    type="password"
                     value={state.name}
                     onChange={(e) => stateReducer({ type: 'setName', payload: { name: e.target.value } })}
                 />
