@@ -8,10 +8,16 @@ export function Input({ label, error, className, ...rest }: { label: string; err
                 {label}
             </div>
 
-            <input className="px-4 py-1.5 text-indigo-900 bg-indigo-200 rounded" {...rest} />
+            <input
+                className={classNames(
+                    "px-4 py-1.5 text-indigo-900 bg-indigo-200 rounded",
+                    "outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 focus:ring-offset-indigo-500/70"
+                )}
+                {...rest}
+            />
 
             <div
-                className={classNames(!error && "invisible", "text-xs font-semibold text-red-300 min-h-[1rem]", className)}
+                className={classNames(!error && "invisible", "pt-1 text-xs font-semibold text-red-300 min-h-[1rem]", className)}
                 style={{ textShadow: '0px 0px 2px red' }}
             >
                 {error}
