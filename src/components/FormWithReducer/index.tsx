@@ -47,35 +47,37 @@ export function FormWithReducer() {
     const [state, reduceState] = useReducer(reducer, initialState);
     return (
         <section className="h-full grid place-content-center place-items-center">
-            <form className="p-4 min-w-[44ch] bg-violet-500 rounded-md flex flex-col">
+            <form className="min-w-[44ch] bg-violet-500 rounded-md flex flex-col overflow-hidden">
 
-                <div className="text-violet-200 bg-violet-900">Caption</div>
+                <div className="p-4 text-violet-200 bg-violet-900">Caption</div>
 
-                <Input
-                    label="Username"
-                    type="text"
-                    value={state.name}
-                    onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
-                    error={state.name ? undefined : "This text is required."}
-                />
+                <div className="p-4">
+                    <Input
+                        label="Username"
+                        type="text"
+                        value={state.name}
+                        onChange={(e) => reduceState({ type: 'setName', payload: { name: e.target.value } })}
+                        error={state.name ? undefined : "This text is required."}
+                    />
 
-                <Input
-                    label="Password"
-                    type="password"
-                    value={state.password}
-                    onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
-                    error={state.password ? undefined : "This text is required."}
-                />
+                    <Input
+                        label="Password"
+                        type="password"
+                        value={state.password}
+                        onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
+                        error={state.password ? undefined : "This text is required."}
+                    />
 
-                <div className="mt-8 mb-4 text-xs">
-                    <div className="text-indigo-100">State</div>
+                    <div className="mt-8 text-xs">
+                        <div className="text-indigo-100">State</div>
 
-                    <div className="px-2 py-1 text-xs text-indigo-100 bg-violet-300/10 rounded whitespace-pre">
-                        {JSON.stringify(state, null, 4)}
+                        <div className="px-2 py-1 text-xs text-indigo-100 bg-violet-300/10 rounded whitespace-pre">
+                            {JSON.stringify(state, null, 4)}
+                        </div>
                     </div>
                 </div>
 
-                <Button label="OK" onClick={(e) => e.preventDefault()} />
+                <Button label="OK" className="mx-4 mb-4 min-w-[12ch]" onClick={(e) => e.preventDefault()} />
             </form>
         </section>
     );

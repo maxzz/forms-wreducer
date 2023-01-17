@@ -11,9 +11,9 @@ export function Input({ label, error, className, ...rest }: { label: string; err
     );
 }
 
-export function Button({ label, ...rest }: { label: string; } & ButtonHTMLAttributes<HTMLButtonElement>) {
+export function Button({ label, className, ...rest }: { label: string; } & ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className="self-end px-3 py-2 min-w-[12ch] border-violet-400 border rounded" {...rest}>
+        <button className={classNames("self-end px-3 py-2 border-violet-400 border rounded", className)} {...rest}>
             {label}
         </button>
     );
