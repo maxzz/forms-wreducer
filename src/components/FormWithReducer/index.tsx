@@ -68,15 +68,14 @@ export function FormWithReducer() {
                 />
 
                 <div className="mt-8 mb-4 text-xs">
-                    <div className="text-indigo-200">State</div>
+                    <div className="text-indigo-100">State</div>
 
-                    <div className="px-2 py-1 text-xs bg-violet-300 rounded whitespace-pre">
+                    <div className="px-2 py-1 text-xs text-indigo-100 bg-violet-300/10 rounded whitespace-pre">
                         {JSON.stringify(state, null, 4)}
                     </div>
-
                 </div>
 
-                <Button />
+                <Button label="OK" onClick={(e) => e.preventDefault()} />
             </form>
         </section>
     );
