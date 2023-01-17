@@ -15,6 +15,7 @@ function Input({ label, ...rest }: { label: string; } & InputHTMLAttributes<HTML
         <label className="grid">
             <div className="mb-1">{label}</div>
             <input className="px-4 py-1.5 rounded" {...rest} />
+            <div className="invisible_ text-red-800">error</div>
         </label>
     );
 }
@@ -38,7 +39,7 @@ export function FormWithReducer() {
     );
     return (
         <section className="h-full grid place-content-center place-items-center">
-            <form className="p-4 bg-violet-500 rounded-md">
+            <form className="p-4 min-w-[44ch] bg-violet-500 rounded-md">
 
                 <Input
                     label="Username"
@@ -63,7 +64,10 @@ export function FormWithReducer() {
                     />
                 </label> */}
 
-                {state.name}
+                <div className="mt-8">
+                    {state.name}
+                </div>
+
             </form>
         </section>
     );
