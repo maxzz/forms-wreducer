@@ -20,6 +20,12 @@ function Input({ label, ...rest }: { label: string; } & InputHTMLAttributes<HTML
     );
 }
 
+function Button() {
+    return (
+        <button className="self-end px-3 py-2 min-w-[12ch] border-violet-400 border rounded">OK</button>
+    )
+}
+
 export function FormWithReducer() {
     const [state, stateReducer] = useReducer(
         (state: State, action: { type: ActionType, payload: Payload; }) => {
@@ -39,7 +45,7 @@ export function FormWithReducer() {
     );
     return (
         <section className="h-full grid place-content-center place-items-center">
-            <form className="p-4 min-w-[44ch] bg-violet-500 rounded-md">
+            <form className="p-4 min-w-[44ch] bg-violet-500 rounded-md flex flex-col">
 
                 <Input
                     label="Username"
@@ -64,10 +70,11 @@ export function FormWithReducer() {
                     />
                 </label> */}
 
-                <div className="mt-8">
+                <div className="mt-8 text-center">
                     {state.name}
                 </div>
 
+                <Button />
             </form>
         </section>
     );
