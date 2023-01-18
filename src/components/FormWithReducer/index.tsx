@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { Input, Button, Checkbox, StateDisplay, DialogCaption } from './ui';
+import { Input, Button, Checkbox, StateDisplay, DialogCaption } from './UI';
 
 type State = {
     name: string;
@@ -62,7 +62,7 @@ export function FormWithReducer() {
         <section className="h-full grid place-content-center place-items-center">
             <form className="min-w-[44ch] bg-indigo-900/70 rounded-md flex flex-col overflow-hidden">
 
-                <DialogCaption label="Caption" />
+                <DialogCaption label="UI elements" />
 
                 <div className="p-4">
                     <Input
