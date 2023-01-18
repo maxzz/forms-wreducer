@@ -1,9 +1,10 @@
 import { useReducer } from 'react';
-import { Input, Button } from './ui';
+import { Input, Button, Checkbox } from './ui';
 
 type State = {
     name: string;
     password: string;
+    age18: boolean;
 };
 
 //type ActionType = 'setName' | 'setPassword';
@@ -18,7 +19,12 @@ type ActionPassword = {
     payload: { password: string; };
 };
 
-type Action = ActionName | ActionPassword;
+type ActionAge18 = {
+    type: 'setAge18',
+    payload: { age18: boolean; };
+};
+
+type Action = ActionName | ActionPassword | ActionAge18;
 
 function reducer(state: State, action: Action) {
     switch (action.type) {
@@ -34,6 +40,12 @@ function reducer(state: State, action: Action) {
                 ...action.payload,
             };
         }
+        case 'setAge18': {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        }
     }
     return state;
 }
@@ -41,6 +53,7 @@ function reducer(state: State, action: Action) {
 const initialState = {
     name: "Jack",
     password: "",
+    age18: true,
 };
 
 export function FormWithReducer() {
@@ -66,6 +79,14 @@ export function FormWithReducer() {
                         value={state.password}
                         onChange={(e) => reduceState({ type: 'setPassword', payload: { password: e.target.value } })}
                         error={state.password ? undefined : "This field is required."}
+                    />
+
+                    <Checkbox
+                        label="18+"
+                        type="checkbox"
+                        checked={state.age18}
+                        onChange={(e) => reduceState({ type: 'setAge18', payload: { age18: e.target.checked } })}
+                        error={state.age18 ? undefined : "This field is required."}
                     />
 
                     <div className="mt-8 text-xs">
