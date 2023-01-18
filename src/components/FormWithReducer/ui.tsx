@@ -83,3 +83,15 @@ export function StateDisplay({ state, className, ...rest }: { state: object; } &
         </div>
     );
 }
+
+export function DialogCaption({ label, className, ...rest }: { label: string; } & HTMLAttributes<HTMLDivElement>) {
+    return (
+        <div
+            className={classNames("p-4 text-2xl font-semibold text-indigo-200 bg-indigo-900", className)}
+            style={{ WebkitTextFillColor: 'transparent', WebkitTextStrokeColor: '#e8e8e8', WebkitTextStroke: '.3px' }}
+            {...rest}
+        >
+            {label}
+        </div>
+    );
+}
