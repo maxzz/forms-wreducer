@@ -1,5 +1,17 @@
 import { classNames } from "@/utils/classnames";
-import { ButtonHTMLAttributes, InputHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes } from "react";
+
+function ErrorMessage({ error, className }: { error?: string; } & HTMLAttributes<HTMLDivElement>) {
+    return (
+        <div
+            className={classNames(!error && "invisible", "min-h-[1.25rem] pt-1 text-xs font-semibold text-red-300", className)}
+            style={{ textShadow: '0px 0px 2px red' }}
+        >
+            {error}
+        </div>
+
+    );
+}
 
 export function Input({ label, error, className, ...rest }: { label: string; error?: string; } & InputHTMLAttributes<HTMLInputElement>) {
     return (
@@ -12,16 +24,12 @@ export function Input({ label, error, className, ...rest }: { label: string; err
                 className={classNames(
                     "px-4 py-1.5 text-indigo-900 bg-indigo-200 rounded",
                     "outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-100/70 focus:ring-offset-indigo-500/70",
+                    className
                 )}
                 {...rest}
             />
 
-            <div
-                className={classNames(!error && "invisible", "min-h-[1.25rem] pt-1 text-xs font-semibold text-red-300", className)}
-                style={{ textShadow: '0px 0px 2px red' }}
-            >
-                {error}
-            </div>
+            <ErrorMessage error={error}/>
         </label>
     );
 }
@@ -34,6 +42,7 @@ export function Checkbox({ label, error, className, ...rest }: { label: string; 
                     className={classNames(
                         "form-checkbox w-6 h-6 text-indigo-900 bg-indigo-200 rounded",
                         "outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-100/70 focus:ring-offset-indigo-500/70",
+                        className
                     )}
                     {...rest}
                 />
@@ -42,13 +51,8 @@ export function Checkbox({ label, error, className, ...rest }: { label: string; 
                 </div>
 
             </div>
-            
-            <div
-                className={classNames(!error && "invisible", "min-h-[1.25rem] pt-1 text-xs font-semibold text-red-300", className)}
-                style={{ textShadow: '0px 0px 2px red' }}
-            >
-                {error}
-            </div>
+
+            <ErrorMessage error={error}/>
         </label>
     );
 }
