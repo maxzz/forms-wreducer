@@ -1,11 +1,10 @@
-import { classNames } from '@/utils/classnames';
-import { HTMLAttributes, useReducer } from 'react';
+import { useReducer } from 'react';
 import { Input, Button, Checkbox, StateDisplay } from './ui';
 
 type State = {
     name: string;
     password: string;
-    age18: boolean;
+    agree: boolean;
 };
 
 //type ActionType = 'setName' | 'setPassword';
@@ -20,12 +19,12 @@ type ActionPassword = {
     payload: { password: string; };
 };
 
-type ActionAge18 = {
-    type: 'setAge18',
-    payload: { age18: boolean; };
+type ActionAgree = {
+    type: 'setAgree',
+    payload: { agree: boolean; };
 };
 
-type Action = ActionName | ActionPassword | ActionAge18;
+type Action = ActionName | ActionPassword | ActionAgree;
 
 function reducer(state: State, action: Action) {
     switch (action.type) {
@@ -41,20 +40,20 @@ function reducer(state: State, action: Action) {
                 ...action.payload,
             };
         }
-        case 'setAge18': {
+        case 'setAgree': {
             return {
                 ...state,
                 ...action.payload,
             };
         }
     }
-    return state;
+    throw new Error('reduce');
 }
 
 const initialState = {
     name: "Jack",
     password: "",
-    age18: true,
+    agree: true,
 };
 
 export function FormWithReducer() {
@@ -85,9 +84,9 @@ export function FormWithReducer() {
                     <Checkbox
                         label="18+"
                         type="checkbox"
-                        checked={state.age18}
-                        onChange={(e) => reduceState({ type: 'setAge18', payload: { age18: e.target.checked } })}
-                        error={state.age18 ? undefined : "This field is required."}
+                        checked={state.agree}
+                        onChange={(e) => reduceState({ type: 'setAgree', payload: { agree: e.target.checked } })}
+                        error={state.agree ? undefined : "This field is required."}
                     />
 
                     <StateDisplay state={state} />
