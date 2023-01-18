@@ -1,5 +1,6 @@
-import { useReducer } from 'react';
-import { Input, Button, Checkbox } from './ui';
+import { classNames } from '@/utils/classnames';
+import { HTMLAttributes, useReducer } from 'react';
+import { Input, Button, Checkbox, StateDisplay } from './ui';
 
 type State = {
     name: string;
@@ -89,13 +90,7 @@ export function FormWithReducer() {
                         error={state.age18 ? undefined : "This field is required."}
                     />
 
-                    <div className="mt-8 text-xs">
-                        <div className="text-indigo-100">State</div>
-
-                        <div className="px-2 py-1 text-xs text-indigo-100 bg-violet-300/10 rounded whitespace-pre">
-                            {JSON.stringify(state, null, 4)}
-                        </div>
-                    </div>
+                    <StateDisplay state={state} />
                 </div>
 
                 <Button label="OK" className="self-end mx-4 mb-4 min-w-[12ch]" onClick={(e) => e.preventDefault()} />

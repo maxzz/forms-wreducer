@@ -29,7 +29,7 @@ export function Input({ label, error, className, ...rest }: { label: string; err
                 {...rest}
             />
 
-            <ErrorMessage error={error}/>
+            <ErrorMessage error={error} />
         </label>
     );
 }
@@ -52,7 +52,7 @@ export function Checkbox({ label, error, className, ...rest }: { label: string; 
 
             </div>
 
-            <ErrorMessage error={error}/>
+            <ErrorMessage error={error} />
         </label>
     );
 }
@@ -69,5 +69,17 @@ export function Button({ label, className, ...rest }: { label: string; } & Butto
         >
             {label}
         </button>
+    );
+}
+
+export function StateDisplay({ state, className, ...rest }: { state: object; } & HTMLAttributes<HTMLDivElement>) {
+    return (
+        <div className={classNames("mt-8 text-xs", className)} {...rest}>
+            <div className="text-indigo-100">State</div>
+
+            <div className="px-2 py-1 text-xs text-indigo-100 bg-violet-300/10 rounded whitespace-pre">
+                {JSON.stringify(state, null, 4)}
+            </div>
+        </div>
     );
 }
