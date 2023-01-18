@@ -17,7 +17,7 @@ export function Input({ label, error, className, ...rest }: { label: string; err
             />
 
             <div
-                className={classNames(!error && "invisible", "pt-1 text-xs font-semibold text-red-300 min-h-[1rem]", className)}
+                className={classNames(!error && "invisible", "min-h-[1.25rem] pt-1 text-xs font-semibold text-red-300", className)}
                 style={{ textShadow: '0px 0px 2px red' }}
             >
                 {error}
@@ -44,7 +44,7 @@ export function Checkbox({ label, error, className, ...rest }: { label: string; 
             </div>
             
             <div
-                className={classNames(!error && "invisible", "pt-1 text-xs font-semibold text-red-300 min-h-[1rem]", className)}
+                className={classNames(!error && "invisible", "min-h-[1.25rem] pt-1 text-xs font-semibold text-red-300", className)}
                 style={{ textShadow: '0px 0px 2px red' }}
             >
                 {error}
