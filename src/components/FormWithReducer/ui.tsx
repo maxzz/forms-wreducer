@@ -26,6 +26,33 @@ export function Input({ label, error, className, ...rest }: { label: string; err
     );
 }
 
+export function Checkbox({ label, error, className, ...rest }: { label: string; error?: string; } & InputHTMLAttributes<HTMLInputElement>) {
+    return (
+        <label className="mt-4 select-none grid">
+            <div className="flex items-center space-x-2">
+                <input
+                    className={classNames(
+                        "form-checkbox w-6 h-6 text-indigo-900 bg-indigo-200 rounded",
+                        "outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-100/70 focus:ring-offset-indigo-500/70",
+                    )}
+                    {...rest}
+                />
+                <div className="mb-1 text-indigo-200">
+                    {label}
+                </div>
+
+            </div>
+            
+            <div
+                className={classNames(!error && "invisible", "pt-1 text-xs font-semibold text-red-300 min-h-[1rem]", className)}
+                style={{ textShadow: '0px 0px 2px red' }}
+            >
+                {error}
+            </div>
+        </label>
+    );
+}
+
 export function Button({ label, className, ...rest }: { label: string; } & ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
         <button
