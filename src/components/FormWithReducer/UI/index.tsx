@@ -9,7 +9,7 @@ export function DialogCaption({ label, className, ...rest }: { label: string; } 
             style={{ WebkitTextFillColor: 'transparent', WebkitTextStrokeColor: '#e8e8e8', WebkitTextStroke: '.3px' }}
             {...rest}
         >
-            {label}
+            <div className="scale-y-125 tracking-tighter">{label}</div>
         </div>
     );
 }
@@ -17,7 +17,7 @@ export function DialogCaption({ label, className, ...rest }: { label: string; } 
 export function StateDisplay({ state, className, ...rest }: { state: object; } & HTMLAttributes<HTMLDivElement>) {
     return (
         <div className={classNames("mt-8 text-xs", className)} {...rest}>
-            <div className="text-indigo-100">State</div>
+            <div className="px-2 text-indigo-100">State</div>
 
             <div className="px-2 py-1 text-xs text-indigo-100 bg-violet-300/10 rounded whitespace-pre">
                 {JSON.stringify(state, null, 4)}
