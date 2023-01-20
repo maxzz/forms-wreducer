@@ -1,8 +1,11 @@
 import { FormWithReducer } from "@/components/FormWithReducer";
 import { BWSwitch } from '@/components/BWSwitch';
 import { AppHeader } from "./components/AppHeader";
+import { useAtomValue } from "jotai";
+import { currentScreenAtom } from "./store";
 
 function App() {
+    const screen = useAtomValue(currentScreenAtom);
     return (
         <div
             className="h-screen relative debug-screens flex flex-col"
@@ -13,7 +16,8 @@ function App() {
                 <BWSwitch />
             </div>
 
-            <FormWithReducer />
+            {screen === 0 && <FormWithReducer />}
+            {screen === 1 && <div className="">TODO</div> }
         </div>
     );
 }
