@@ -73,7 +73,7 @@ export function FormWithReducer() {
     const [state, reduceState] = useReducer(reducer, initialState);
     return (
         <section className="h-full grid place-content-center place-items-center">
-            <form className="min-w-[44ch] bg-indigo-900/70 rounded-md flex flex-col overflow-hidden shadow">
+            <form className="min-w-[44ch] md:min-w-[54ch] bg-indigo-900/70 rounded-md flex flex-col overflow-hidden shadow">
 
                 <DialogCaption label="UI elements" />
 
