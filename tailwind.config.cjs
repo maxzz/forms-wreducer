@@ -1,3 +1,5 @@
+const scr = require('./tailwind/tailwind-plugin-debug-screens.cjs');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./index.html', './src/**/*.{ts,tsx}'],
@@ -5,6 +7,7 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require('@tailwindcss/forms')({strategy: 'class'})
+        require('@tailwindcss/forms')({ strategy: 'class' }),
+        scr,
     ],
 };
