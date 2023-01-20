@@ -97,12 +97,27 @@ export function FormWithReducer() {
                     />
 
                     <Checkbox
-                        label="Age you old enought"
+                        label="Old enought"
                         type="checkbox"
                         checked={state.agree}
                         onChange={(e) => reduceState({ type: 'setAgree', payload: { agree: e.target.checked } })}
                         error={state.agree ? undefined : "This field is required."}
                     />
+
+                    <div className="flex space-x-2">
+                        <label className="flex space-x-2">
+                            <input type="radio" name="radio" />
+                            <div className="">one</div>
+                        </label>
+                        <label className="flex space-x-2">
+                            <input type="radio" name="radio" />
+                            <div className="">of</div>
+                        </label>
+                        <label className="flex space-x-2">
+                            <input type="radio" name="radio" />
+                            <div className="">us</div>
+                        </label>
+                    </div>
 
                     <Select
                         label="Job Type"
