@@ -1,5 +1,6 @@
 import { FormWithReducer } from "@/components/FormWithReducer";
 import { BWSwitch } from '@/components/BWSwitch';
+import { AppHeader } from "./components/AppHeader";
 
 function App() {
     return (
@@ -8,18 +9,10 @@ function App() {
             style={{ backgroundImage: 'radial-gradient(circle at right bottom, #85b2ff, #9fc7ff)' }}
         >
             <div>
-                <ul className="px-4 py-2 text-xl font-semibold text-indigo-800 flex justify-center space-x-4">
-                    <li>
-                        <button>Non-Modal Dialog</button>
-                    </li>
-                    <li>
-                        <button>Modal Dialog</button>
-                    </li>
-                </ul>
-
+                <AppHeader />
                 <BWSwitch />
             </div>
-            
+
             <FormWithReducer />
         </div>
     );
