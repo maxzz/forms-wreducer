@@ -13,7 +13,7 @@ export interface Cancelable {
 }
 
 export function debounce<T extends (this: any, ...args: any[]) => any, This>(func: T, wait: number = 166): T & Cancelable {
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     
     function debounced(this: any, ...args: any[]) {
         const later = () => {
@@ -24,7 +24,7 @@ export function debounce<T extends (this: any, ...args: any[]) => any, This>(fun
     }
 
     debounced.clear = () => {
-        clearTimeout(timeout);
+        timeout && (clearTimeout(timeout), timeout = undefined);
     };
 
     return debounced as T & Cancelable;
