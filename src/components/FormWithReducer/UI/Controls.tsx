@@ -58,6 +58,31 @@ export function Checkbox({ label, error, className, ...rest }: { label: string; 
     );
 }
 
+export function Radio({ label, error, className, ...rest }: { label: string; error?: string; } & InputHTMLAttributes<HTMLInputElement>) {
+    return (
+        <label className="flex items-center space-x-2">
+            <input
+                className="w-6 h-6 form-radio tm-input-radio"
+                type="radio"
+                name="radio"
+            />
+
+            <div className="mb-1 text-indigo-200">
+                {label}
+            </div>
+        </label>
+    );
+}
+
+export function RadioGroup({ error, children, ...rest }: { error?: string; } & InputHTMLAttributes<HTMLDivElement>) {
+    return (
+        <div {...rest}>
+            {children}
+            <ErrorMessage error={error} />
+        </div>
+    );
+}
+
 export function Select({ label, error, children, ...rest }: { label: string; error?: string; } & SelectHTMLAttributes<HTMLSelectElement>) {
     return (<>
         <label className="grid select-none">

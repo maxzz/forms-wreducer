@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { Input, Button, Checkbox, StateDisplay, DialogCaption, Select } from './UI';
+import { Input, Button, Checkbox, StateDisplay, DialogCaption, Select, RadioGroup, Radio } from './UI';
 
 type State = {
     name: string;
@@ -104,20 +104,11 @@ export function FormWithReducer() {
                         error={state.agree ? undefined : "This field is required."}
                     />
 
-                    <div className="text-indigo-200 flex space-x-2">
-                        <label className="flex items-center space-x-2">
-                            <input className="w-6 h-6 form-radio tm-input-radio" type="radio" name="radio" />
-                            <div className="">one</div>
-                        </label>
-                        <label className="flex items-center space-x-2">
-                            <input className="w-6 h-6 form-radio tm-input-radio" type="radio" name="radio" />
-                            <div className="">of</div>
-                        </label>
-                        <label className="flex items-center space-x-2">
-                            <input className="w-6 h-6 form-radio tm-input-radio" type="radio" name="radio" />
-                            <div className="">us</div>
-                        </label>
-                    </div>
+                    <RadioGroup className="text-indigo-200 flex space-x-2">
+                        <Radio label="one" />
+                        <Radio label="of" />
+                        <Radio label="us" />
+                    </RadioGroup>
 
                     <Select
                         label="Job Type"
