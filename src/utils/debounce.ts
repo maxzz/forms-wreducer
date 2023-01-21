@@ -12,10 +12,10 @@ export interface Cancelable {
     clear(): void;
 }
 
-export function debounce<T extends (this: any, ...args: any[]) => any, This>(func: T, wait: number = 166): T & Cancelable {
+export function debounce<T extends (this: This, ...args: any[]) => any, This>(func: T, wait: number = 166): T & Cancelable {
     let timeout: ReturnType<typeof setTimeout> | undefined;
     
-    function debounced(this: any, ...args: any[]) {
+    function debounced(this: This, ...args: any[]) {
         const later = () => {
             func.apply(this, args);
         };
