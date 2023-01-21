@@ -104,17 +104,17 @@ export function FormWithReducer() {
                         error={state.agree ? undefined : "This field is required."}
                     />
 
-                    <div className="flex space-x-2">
-                        <label className="flex space-x-2">
-                            <input type="radio" name="radio" />
+                    <div className="text-indigo-200 flex space-x-2">
+                        <label className="flex items-center space-x-2">
+                            <input className="form-radio" type="radio" name="radio" />
                             <div className="">one</div>
                         </label>
-                        <label className="flex space-x-2">
-                            <input type="radio" name="radio" />
+                        <label className="flex items-center space-x-2">
+                            <input className="form-radio" type="radio" name="radio" />
                             <div className="">of</div>
                         </label>
-                        <label className="flex space-x-2">
-                            <input type="radio" name="radio" />
+                        <label className="flex items-center space-x-2">
+                            <input className="form-radio" type="radio" name="radio" />
                             <div className="">us</div>
                         </label>
                     </div>
