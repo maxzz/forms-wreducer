@@ -1,5 +1,5 @@
 import { HTMLAttributes, InputHTMLAttributes, SelectHTMLAttributes } from "react";
-import { classNames } from "@/utils/classnames";
+import { classNames } from "@/utils";
 import "./controls.css";
 
 function ErrorMessage({ error, className }: { error?: string; } & HTMLAttributes<HTMLDivElement>) {

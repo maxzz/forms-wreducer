@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import { useSetAtom } from 'jotai';
 import { currentScreenAtom } from '@/store';
-import { classNames } from '@/utils/classnames';
+import { classNames } from '@/utils';
 
 function Button({ form, children, ...rest }: { form: number; } & HTMLAttributes<HTMLButtonElement>) {
     const setScreen = useSetAtom(currentScreenAtom);

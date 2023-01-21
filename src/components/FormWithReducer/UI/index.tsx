@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, HTMLAttributes } from "react";
-import { classNames } from "@/utils/classnames";
+import { classNames } from "@/utils";
 export * from './Controls';
 
 export function DialogCaption({ label, className, ...rest }: { label: string; } & HTMLAttributes<HTMLDivElement>) {
