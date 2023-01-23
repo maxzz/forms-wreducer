@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { initialState, State } from './reducer';
+import { initialState, State } from './types';
 import { Input, Button, Checkbox, StateDisplay, DialogCaption, Select, RadioGroup, Radio } from './UI';
 
 //type ActionType = 'setName' | 'setPassword';
