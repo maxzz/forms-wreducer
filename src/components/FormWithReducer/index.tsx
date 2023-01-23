@@ -24,14 +24,25 @@ type ActionJob = {
     payload: { job: string; };
 };
 
-type Actions = {
-    [key in keyof State]: {
+// type Actions = {
+//     [key in keyof State]: {
+//         type: `set${key}`,
+//         payload: {
+//             key: [key];
+//         }
+//     }
+// };
+
+type Actions<T> = {
+    [key in keyof T & string]: {
         type: `set${key}`,
         payload: {
-            key: [key];
+            key: T[key];
         }
     }
 };
+
+type Actions2 = Actions<typeof initialState>;
 
 type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
 
