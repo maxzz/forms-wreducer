@@ -1,6 +1,60 @@
 import { useReducer } from 'react';
-import { reducer, initialState } from './reducer';
+import { initialState, State } from './reducer';
 import { Input, Button, Checkbox, StateDisplay, DialogCaption, Select, RadioGroup, Radio } from './UI';
+
+//type ActionType = 'setName' | 'setPassword';
+
+type ActionName = {
+    type: 'setName',
+    payload: { name: string; };
+};
+
+type ActionPassword = {
+    type: 'setPassword',
+    payload: { password: string; };
+};
+
+type ActionAgree = {
+    type: 'setAgree',
+    payload: { agree: boolean; };
+};
+
+type ActionJob = {
+    type: 'setJob',
+    payload: { job: string; };
+};
+
+type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
+
+function reducer(state: State, action: Action) {
+    switch (action.type) {
+        case 'setName': {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        }
+        case 'setPassword': {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        }
+        case 'setAgree': {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        }
+        case 'setJob': {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        }
+    }
+    throw new Error('reduce');
+}
 
 export function FormWithReducer() {
     const [state, reduceState] = useReducer(reducer, initialState);
