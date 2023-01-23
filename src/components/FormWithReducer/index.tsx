@@ -24,15 +24,6 @@ type ActionJob = {
     payload: { job: string; };
 };
 
-// type Actions = {
-//     [key in keyof State]: {
-//         type: `set${key}`,
-//         payload: {
-//             key: [key];
-//         }
-//     }
-// };
-
 type Actions<T> = {
     [key in keyof T & string]: {
         type: `set${Capitalize<key>}`,
@@ -41,10 +32,56 @@ type Actions<T> = {
         }
     }
 };
+type Action = Actions<State>;
+/*
+type Action = {
+    name: {
+        type: "setName";
+        payload: {
+            key: string;
+        };
+    };
+    password: {
+        type: "setPassword";
+        payload: {
+            key: string;
+        };
+    };
+    agree: {
+        type: "setAgree";
+        payload: {
+            key: boolean;
+        };
+    };
+    job: {
+        type: "setJob";
+        payload: {
+            key: string;
+        };
+    };
+}
+*/
 
-type Actions2 = Actions<typeof initialState>;
+type ActionKey<T> = keyof T & string;
+type Actions1<T> = 
+    {
+        type: `set${Capitalize<ActionKey<T>>}`,
+        payload: {
+            key: T[ActionKey<T>];
+        }
+    }
+;
+type Action1 = Actions1<State>;
+/*
+type Action1 = {
+    type: "setName" | "setPassword" | "setAgree" | "setJob";
+    payload: {
+        key: string | boolean;
+    };
+}
+*/
 
-type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
+//type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
 
 function reducer(state: State, action: Action) {
     switch (action.type) {
