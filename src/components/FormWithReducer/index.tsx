@@ -35,7 +35,7 @@ type ActionJob = {
 
 type Actions<T> = {
     [key in keyof T & string]: {
-        type: `set${key}`,
+        type: `set${Capitalize<key>}`,
         payload: {
             key: T[key];
         }
