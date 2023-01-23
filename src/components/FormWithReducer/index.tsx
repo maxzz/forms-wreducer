@@ -24,6 +24,15 @@ type ActionJob = {
     payload: { job: string; };
 };
 
+type Actions = {
+    [key in keyof State]: {
+        type: `set${key}`,
+        payload: {
+            key: [key];
+        }
+    }
+};
+
 type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
 
 function reducer(state: State, action: Action) {
