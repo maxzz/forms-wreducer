@@ -29,7 +29,7 @@ type Actions<T> = {
         type: `set${Capitalize<key>}`,
         payload: {
             key: T[key];
-        }
+        };
     }
 };
 type Action = Actions<State>;
@@ -63,14 +63,14 @@ type Action = {
 */
 
 type ActionKey<T> = keyof T & string;
-type Actions1<T> = 
+type Actions1<T> =
     {
         type: `set${Capitalize<ActionKey<T>>}`,
         payload: {
             key: T[ActionKey<T>];
-        }
+        };
     }
-;
+    ;
 type Action1 = Actions1<State>;
 /*
 type Action1 = {
@@ -80,6 +80,37 @@ type Action1 = {
     };
 }
 */
+
+type Actions3<T> = T extends any ? {
+    type: `set${Capitalize<ActionKey<T>>}`;
+    payload: {
+        key: T[ActionKey<T>];
+    };
+} : never;
+/*
+type Action3 = {
+    type: "setName" | "setPassword" | "setAgree" | "setJob";
+    payload: {
+        key: string | boolean;
+    };
+}
+*/
+type Action3 = Actions3<State>;
+
+// type Actions4<T> = T extends { type: string; payload: { key: T[ActionKey<T>]; }; } ? {
+//     type: `set${Capitalize<ActionKey<T['type']>>}`;
+//     payload: {
+//         [T]: T[ActionKey<T>];
+//     };
+// } : never;
+// type Actions4<T> = T extends { [TKey in keyof T]: T[TKey] } ? {
+type Actions4<T> = T extends { [TKey in keyof T]: infer V } ? {
+    type: `set${Capitalize<TKey>}`;
+    payload: {
+        aa: V;
+    };
+} : never;
+type Action4 = Actions4<State>;
 
 //type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
 
