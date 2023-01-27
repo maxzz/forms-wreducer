@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { initialState, State } from './types';
+import { State } from './types';
 import { Input, Button, Checkbox, StateDisplay, DialogCaption, Select, RadioGroup, Radio } from './UI';
 
 //type ActionType = 'setName' | 'setPassword';
@@ -146,7 +146,7 @@ function reducer(state: State, action: Action) {
     throw new Error('reduce');
 }
 
-export function FormWithReducer() {
+export function FormWithReducer({initialState}: {initialState: State}) {
     const [state, reduceState] = useReducer(reducer, initialState);
     return (
         <section className="h-full grid place-content-center place-items-center">
