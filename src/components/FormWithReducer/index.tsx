@@ -32,7 +32,7 @@ type Actions<T> = {
         };
     }
 };
-type Action = Actions<State>;
+//type Action = Actions<State>;
 /*
 type Action = {
     name: {
@@ -104,15 +104,17 @@ type Action3 = Actions3<State>;
 //     };
 // } : never;
 // type Actions4<T> = T extends { [TKey in keyof T]: T[TKey] } ? {
-type Actions4<T> = T extends { [TKey in keyof T]: infer V } ? {
-    type: `set${Capitalize<TKey>}`;
-    payload: {
-        aa: V;
-    };
-} : never;
-type Action4 = Actions4<State>;
+//
+// type Actions4<T> = T extends { [TKey in keyof T]: infer V } ? {
+//     type: `set${Capitalize<TKey>}`;
+//     payload: {
+//         aa: V;
+//     };
+// } : never;
 
-//type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
+// type Action4 = Actions4<State>;
+
+type Action = ActionName | ActionPassword | ActionAgree | ActionJob;
 
 function reducer(state: State, action: Action) {
     switch (action.type) {
