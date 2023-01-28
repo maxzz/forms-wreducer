@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import { State } from './types';
 import { Input, Button, Checkbox, StateDisplay, DialogCaption, Select, RadioGroup, Radio } from './UI';
+import confetti from 'canvas-confetti';
 
 //type ActionType = 'setName' | 'setPassword';
 
@@ -146,7 +147,7 @@ function reducer(state: State, action: Action) {
     throw new Error('reduce');
 }
 
-export function FormWithReducer({initialState}: {initialState: State}) {
+export function FormWithReducer({ initialState }: { initialState: State; }) {
     const [state, reduceState] = useReducer(reducer, initialState);
     return (
         <section className="h-full grid place-content-center place-items-center">
@@ -205,7 +206,13 @@ export function FormWithReducer({initialState}: {initialState: State}) {
                     <StateDisplay state={state} />
                 </div>
 
-                <Button label="OK" className="self-end mx-4 mb-4 min-w-[12ch]" onClick={(e) => e.preventDefault()} />
+                <Button label="OK" className="self-end mx-4 mb-4 min-w-[12ch]" onClick={(e) => {
+                    e.preventDefault();
+                    confetti({
+                        particleCount: 150,
+                        spread: 60
+                    });
+                }} />
             </form>
         </section >
     );
